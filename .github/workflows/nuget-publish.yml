@@ -20,6 +20,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+
+      - name: Parse version tag
+        run: |
+          arrTag=(${GITHUB_REF//\// })
+          VERSION="${arrTag[2]}"
+          VERSION="${VERSION//v}"
+          echo "version is $VERSION"
+          echo $VERSION
+          
+
       - name: Publish NuGet
         uses: brandedoutcast/publish-nuget@v2.5.5
         with:
@@ -33,3 +43,8 @@ jobs:
           NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
 
           # TODO - add a version number here
+
+          # commits are handled in a separate step
+          TAG_COMMIT: false
+          
+          VERSION_STATIC: $VERSION
