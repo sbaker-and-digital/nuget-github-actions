@@ -33,21 +33,10 @@ jobs:
           echo $VERSION
           
 
-      - name: Publish NuGet
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          # Filepath of the project to be packaged, relative to root of repository
-          PROJECT_FILE_PATH: ./azure-functions-aad-auth.csproj
-          
-          # NuGet package id, used for version detection & defaults to project name
-          PACKAGE_NAME: sbakeranddigital.sample.nuget
-          
-          # API key to authenticate with NuGet server
-          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+      - name: Pack NuGet
+        run: |
+          dotnet pack -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg *.cs*proj
 
-          # TODO - add a version number here
-
-          # commits are handled in a separate step
-          TAG_COMMIT: false
-          
-          VERSION_STATIC: $VERSION
+      - name: Push NuGet
+        run: |
+          dotnet nuget push 
