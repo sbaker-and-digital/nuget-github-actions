@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>azure_functions_aad_auth</RootNamespace>
+    <RootNamespace>sbaker_nuget_starter</RootNamespace>
   </PropertyGroup>
 
 </Project>
