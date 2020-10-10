@@ -6,7 +6,10 @@ name: Publish to nuget.org
 # events but only for the master branch
 on:
   push:
-    branches: [ ci-publish ]
+    # branches: [ ci-publish ]
+    tags:        
+      - v**
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
