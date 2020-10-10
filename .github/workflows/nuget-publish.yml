@@ -22,7 +22,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-
       - name: Parse git version tag
         run: |
           arrTag=(${GITHUB_REF//\// })
