@@ -47,4 +47,4 @@ jobs:
           # commits are handled in a separate step
           TAG_COMMIT: false
           
-          VERSION_STATIC: $VERSION
+          VERSION_STATIC: ${{ VERSION }}
