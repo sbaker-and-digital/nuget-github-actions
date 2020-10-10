@@ -43,4 +43,4 @@ jobs:
 
       - name: Push NuGet
         run: |
-          dotnet nuget push --api-key={{ secrets.NUGET_API_KEY }}
+          dotnet nuget push --api-key={{ secrets.NUGET_API_KEY }} **/*.nupkg
