@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace azure_functions_aad_auth
+﻿namespace sbaker_nuget_starter
 {
     public class TestClass
     {
