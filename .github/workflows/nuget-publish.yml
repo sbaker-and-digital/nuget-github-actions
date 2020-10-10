@@ -32,7 +32,7 @@ jobs:
           echo "version is $VERSION"
           echo $VERSION
           
-          echo "::set-env name=VERSION::$VERSION"
+          echo "VERSION=$VERSION"" >> $GITHUB_ENV
 
       - run: echo "version is $VERSION"
       - run: echo $VERSION
