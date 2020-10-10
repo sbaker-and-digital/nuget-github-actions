@@ -32,13 +32,13 @@ jobs:
           echo "version is $VERSION"
           echo $VERSION
           
+          echo "::set-env name=VERSION::$VERSION"
+
+      - run: echo "version is $VERSION"
+      - run: echo $VERSION
 
       - name: Pack NuGet
         run: |
-          arrTag=(${GITHUB_REF//\// })
-          VERSION="${arrTag[2]}"
-          VERSION="${VERSION//v}"
-          
           dotnet pack -v normal -c Release --include-symbols --include-source -p:PackageVersion=$VERSION -o nupkg *.cs*proj
 
       - name: Push NuGet
